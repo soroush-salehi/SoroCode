@@ -1,0 +1,8 @@
+/* SoroCode · application entry point */
+"use strict";
+
+(()=>{const nodes='section,.panel,.stat,.tasks,.file,.window,.person,.hero,canvas'.split(',').flatMap(s=>[...document.querySelectorAll(s)]);const unique=[...new Set(nodes)].filter(n=>!n.closest('.side'));if(!('IntersectionObserver'in window)){unique.forEach(n=>n.classList.add('visible'));return}const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.08});unique.forEach(n=>{n.classList.add('reveal');io.observe(n)});})();
+
+/* Application module */
+
+const starter={html:'<main><h1>Hello, SoroCode.</h1><p>Build something thoughtful.</p><button onclick="document.querySelector(\'p\').textContent=\'It works!\'">Try me</button></main>',css:'body{font-family:system-ui;background:#f3f6fb;color:#172033;padding:3rem}main{max-width:620px;margin:auto}h1{font-size:2.5rem}button{padding:.8rem 1rem;border:0;border-radius:10px;background:#315efb;color:white}',js:'console.log("SoroCode is ready");'};const $=s=>document.querySelector(s);function run(){let src='<!doctype html><meta charset="utf-8"><style>'+$('#css').value+'</style>'+$('#html').value+'<script>'+$('#js').value+'<\/script>';$('#frame').srcdoc=src;$('#status').textContent='Preview updated'}function reset(){Object.keys(starter).forEach(k=>$('#'+k).value=starter[k]);run()}document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.remove('active'));b.classList.add('active');['html','css','js'].forEach(k=>$('#'+k).hidden=k!==b.dataset.tab)});$('#run').onclick=run;$('#reset').onclick=reset;reset();
