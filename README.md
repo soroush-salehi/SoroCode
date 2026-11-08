@@ -1,43 +1,22 @@
 # SoroCode
 
-> A minimal browser coding playground.
-
-Edit HTML, CSS and JavaScript and preview the result in a sandboxed iframe. The playground runs locally in your browser and does not execute code on a remote server.
+A minimal browser coding playground.
 
 ## Features
-
-- Separate HTML, CSS and JavaScript editors
+- HTML, CSS and JavaScript editors
 - Live preview
-- Sandboxed iframe without top-level navigation or popups
-- Reset to a starter project
+- Sandboxed iframe preview
+- Resettable starter project
 
-## Tech stack
-
-HTML, CSS and vanilla JavaScript
-
-## Run locally
-
+## Run
 Open `index.html` in a modern browser.
 
-## Scope and limitations
+## Safety
+Preview code runs in a sandboxed iframe. Do not paste code you do not trust. This prototype does not execute code on a remote server.
 
-Code runs only in the preview iframe. Do not paste code you do not trust.
-
-## Project structure
-
-```
-SoroCode/
-├── index.html   # self-contained interface and application logic
-└── README.md    # overview, setup and scope
-```
-
-## Development principles
-
-- Keep the interface accessible, responsive and dependency-light.
-- Prefer clear, readable code over unnecessary abstractions.
-- Never commit credentials, private data or generated user files.
-- Document limitations honestly and add tests as the project grows.
+## Structure
+- `index.html` — editor, preview and application logic
+- `README.md` — project documentation
 
 ## License
-
-No license has been selected yet. Until a license is added, all rights are reserved by the copyright holder.
+No license selected. All rights reserved until a license is added.
